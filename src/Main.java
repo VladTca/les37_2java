@@ -11,7 +11,7 @@ public class Main {
         list.add("Egor");
         list.add("Mikhail");
 
-        remove(list, 1, 2);
+        remove(list, 4, 2);
 
         for (String s : list) {
             System.out.println(s);
@@ -19,7 +19,9 @@ public class Main {
     }
     public static void remove(List<String> list, int i,int n) {
         ListIterator<String> iterator = list.listIterator(i);
+        if(i<0 || i>list.size() || n<0 ) return;
         for (int j = 0; j < n; j++) {
+            if(!iterator.hasNext()) return;
             iterator.next();
             iterator.remove();
         }
